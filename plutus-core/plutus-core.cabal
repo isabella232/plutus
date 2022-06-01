@@ -248,6 +248,7 @@ library
         Data.Aeson.Flatten
         Data.Aeson.THReader
         Data.Functor.Foldable.Monadic
+        Data.MultiSet.Lens
         Universe.Core
         GHC.Natural.Extras
     build-depends:
@@ -285,6 +286,7 @@ library
         mmorph -any,
         monoidal-containers,
         mtl -any,
+        multiset -any,
         parser-combinators >= 0.4.0,
         prettyprinter >=1.1.0.1,
         prettyprinter-configurable -any,
