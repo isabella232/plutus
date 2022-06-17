@@ -18,9 +18,12 @@ S3_PREFIX=$1
 # Only download S3 objects whose keys end with this
 S3_SUFFIX=${2:-"*"}
 
-mkdir -p "$LOCAL_DIR"
+
 
 set -x
+echo "$PWD"
+echo "$LOCAL_DIR"
+mkdir -p "$LOCAL_DIR"
 aws --endpoint-url "$AWS_ENDPOINT_URL" s3 sync "$S3_PREFIX" "$LOCAL_DIR" --exclude "*" --include "$S3_SUFFIX"
 { set +x; } 2>/dev/null
 
