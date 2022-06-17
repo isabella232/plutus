@@ -60,6 +60,7 @@ let
     # For scripts/s3-sync-unzip.sh
     bzip2
     cacert
+    curl
     editorconfig-core-c
     ghcid
     jq
@@ -68,6 +69,7 @@ let
     nixFlakesAlias
     nixpkgs-fmt
     shellcheck
+    wget
     yq
     zlib
   ] ++ (lib.optionals (!stdenv.isDarwin) [ rPackages.plotly R ]));
