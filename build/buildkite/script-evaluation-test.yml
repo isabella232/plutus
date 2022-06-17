@@ -1,0 +1,16 @@
+steps:
+  - label: "Download and unzip dump files"
+    command: |
+      nix-shell --run 'LOCAL_DIR=../mainnet-script-dump AWS_ACCESS_KEY_ID=plutus AWS_SECRET_ACCESS_KEY=plutuskey AWS_DEFAULT_REGION=us-east-1 AWS_ENDPOINT_URL=https://s3.devx.iog.io ./scripts/s3-sync-unzip.sh s3://plutus/mainnet-script-dump/ \\*.event.bz2'
+    concurrency: 1
+    concurrency_group: "plutus-script-evaluation"
+    agents:
+      queue: "plutus"
+  - wait
+  - label: "Script evaluation test"
+    command: |
+      nix-shell --run 'cabal update && cabal v2-run plutus-ledger-api:evaluation-test -- -d ../mainnet-script-dump/'
+    concurrency: 1
+    concurrency_group: "plutus-script-evaluation"
+    agents:
+      queue: "plutus"
