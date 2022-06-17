@@ -40,13 +40,14 @@ library
     build-depends:
         base -any,
         deepseq -any,
+        directory -any,
+        filepath -any,
         megaparsec -any,
         plutus-core -any,
         tasty -any,
-        tasty-golden, 
         tasty-hunit -any,
         text -any,
-        unliftio -any
+        witherable -any
         
 executable add-test-output
     import: lang
