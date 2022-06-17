@@ -60,7 +60,6 @@ let
     # For scripts/s3-sync-unzip.sh
     bzip2
     cacert
-    curl
     editorconfig-core-c
     ghcid
     jq

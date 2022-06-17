@@ -19,13 +19,9 @@ wget -nc https://hydra.iohk.io/build/13065769/download/1/$node_zipped -P "$node_
 tar zxvf "$node_bin_dir"/$node_zipped -C "$node_bin_dir"
 
 mkdir -p "$node_dir"
-cd "$node_dir"
 for x in "${node_config_files[@]}"; do
-  if ! [ -f "$x" ]; then
-    curl -O -J https://hydra.iohk.io/build/7370192/download/1/"$x"
-  fi
+  wget -nc https://hydra.iohk.io/build/7370192/download/1/"$x" -P "$node_dir"
 done
-cd -
 
 "$node_bin_dir"/cardano-node run \
   --config "$node_dir"/mainnet-config.json \
