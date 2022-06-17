@@ -9,5 +9,5 @@ writeShellScriptBin "fix-stylish-haskell" ''
     --exclude 'dist-newstyle/*' \
     --exclude 'dist/*' \
     --exclude '.stack-work/*' \
-    --exec bash -c "${stylish-haskell}/bin/stylish-haskell -i {} || true"
+    --exec bash -c "${stylish-haskell}/bin/stylish-haskell -i {}"
 ''
